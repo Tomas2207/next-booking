@@ -4,44 +4,24 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   res.status(200).json([
     {
-      location: 'London',
+      location: 'Spain',
       distance: '45 minute drive',
-      img: 'https://res.cloudinary.com/dbejjbpof/image/upload/v1667428405/cld-sample-2.jpg',
+      img: 'https://res.cloudinary.com/dbejjbpof/image/upload/v1680518194/next-booking/pexels-aleksandar-pasaric-1388030_dx5eak.jpg',
     },
     {
-      location: 'London',
+      location: 'Korea',
       distance: '45 minute drive',
-      img: 'https://res.cloudinary.com/dbejjbpof/image/upload/v1667428405/cld-sample-2.jpg',
+      img: 'https://res.cloudinary.com/dbejjbpof/image/upload/v1680518192/next-booking/pexels-aleksandar-pasaric-2848492_y2kh5u.jpg',
     },
     {
-      location: 'London',
+      location: 'Italy',
       distance: '45 minute drive',
-      img: 'https://res.cloudinary.com/dbejjbpof/image/upload/v1667428405/cld-sample-2.jpg',
+      img: 'https://res.cloudinary.com/dbejjbpof/image/upload/v1680518191/next-booking/pexels-pixabay-531602_elrb3v.jpg',
     },
     {
-      location: 'London',
+      location: 'Japan',
       distance: '45 minute drive',
-      img: 'https://res.cloudinary.com/dbejjbpof/image/upload/v1667428405/cld-sample-2.jpg',
-    },
-    {
-      location: 'London',
-      distance: '45 minute drive',
-      img: 'https://res.cloudinary.com/dbejjbpof/image/upload/v1667428405/cld-sample-2.jpg',
-    },
-    {
-      location: 'London',
-      distance: '45 minute drive',
-      img: 'https://res.cloudinary.com/dbejjbpof/image/upload/v1667428405/cld-sample-2.jpg',
-    },
-    {
-      location: 'London',
-      distance: '45 minute drive',
-      img: 'https://res.cloudinary.com/dbejjbpof/image/upload/v1667428405/cld-sample-2.jpg',
-    },
-    {
-      location: 'London',
-      distance: '45 minute drive',
-      img: 'https://res.cloudinary.com/dbejjbpof/image/upload/v1667428405/cld-sample-2.jpg',
+      img: 'https://res.cloudinary.com/dbejjbpof/image/upload/v1680518193/next-booking/pexels-liger-pham-1108701_krre4x.jpg',
     },
   ]);
 }

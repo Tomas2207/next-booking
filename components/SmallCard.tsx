@@ -1,3 +1,4 @@
+import { MapPinIcon } from '@heroicons/react/24/solid';
 import Image from 'next/image';
 
 type Props = {
@@ -8,15 +9,20 @@ type Props = {
 
 const SmallCard = ({ img, location, distance }: Props) => {
   return (
-    <div className="flex items-center m-2 mt-5 space-x-4 rounded-xl cursor-pointer hover:bg-gray-100 hover:scale-105 transition transform duration-200 ease-out">
+    <div className="flex items-end m-2 mt-5 rounded-xl cursor-pointer hover:bg-gray-100 hover:scale-105 transition transform duration-200 ease-out h-[12rem] overflow-hidden">
       {/* left */}
-      <div className="relative h-16 w-16">
-        <Image src={img} fill alt="location" className="rounded-lg" />
+      <div className="absolute h-full w-full">
+        <Image
+          src={img}
+          fill
+          alt="location"
+          className="rounded-lg object-cover"
+        />
       </div>
       {/* right */}
-      <div>
-        <h2>{location}</h2>
-        <h3 className="text-gray-500">{distance}</h3>
+      <div className="z-[99] bg-black w-full px-4 py-2 bg-opacity-60 flex gap-2">
+        <MapPinIcon height={24} className="text-white" />
+        <h2 className="text-white">{location}</h2>
       </div>
     </div>
   );

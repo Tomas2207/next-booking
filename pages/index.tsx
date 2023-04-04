@@ -2,16 +2,27 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
 import styles from '@/styles/Home.module.css';
-import Header from '@/components/Header';
+
 import Banner from '@/components/Banner';
 import SmallCard from '@/components/SmallCard';
 import MediumCard from '@/components/MediumCard';
 import LargeCard from '@/components/LargeCard';
 import Footer from '@/components/Footer';
+import Header from '@/components/Header';
+import Posts from '@/components/Posts';
 
 type Data = {
   data: Item[];
   cardData: CardItem[];
+  PostData: Posts[];
+  Iplocation: {
+    city: string;
+  };
+};
+
+type Posts = {
+  image: string;
+  title: string;
 };
 
 type Item = {
@@ -24,7 +35,7 @@ type CardItem = {
   title: string;
 };
 
-export default function Home({ data, cardData }: Data) {
+export default function Home({ data, cardData, Iplocation, PostData }: Data) {
   return (
     <>
       <Head>
@@ -36,8 +47,10 @@ export default function Home({ data, cardData }: Data) {
       <Header />
       <Banner />
       <main className="max-w-7xl mx-auto px-8 sm:px-16">
-        <section className="pt-6">
-          <h2 className="text-4xl font-semibold pb-5">Explore Nearby</h2>
+        <section className="pt-4">
+          <h2 className="text-4xl font-semibold pb-1 text-neutral-800">
+            Popular Destinations
+          </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {data.map((item: Item, i: number) => (
               <>
@@ -51,7 +64,15 @@ export default function Home({ data, cardData }: Data) {
             ))}
           </div>
         </section>
-        <section>
+        <section className="mt-12">
+          <h2 className="text-4xl font-semibold pb-1 text-neutral-800">
+            Get Inspired
+          </h2>
+          <p className="text-neutral-600">With Our Creators recent Posts</p>
+          <Posts PostData={PostData} />
+        </section>
+
+        {/* <section>
           <h2 className="text-4xl font-semibold py-8">Live Anywhere</h2>
           <div className="flex space-x-3 overflow-scroll scrollbar-hide p-3 -ml-3">
             {cardData.map((item: CardItem, i: number) => (
@@ -60,7 +81,7 @@ export default function Home({ data, cardData }: Data) {
               </>
             ))}
           </div>
-        </section>
+        </section> */}
         <LargeCard
           img="https://res.cloudinary.com/dbejjbpof/video/upload/v1679377914/45326-travel_fdixxn.mp4"
           title="Find Your Next Trip"
@@ -80,11 +101,20 @@ export async function getStaticProps() {
   const cardData = await fetch('http://localhost:3000/api/cards').then((res) =>
     res.json()
   );
+  const PostData = await fetch('http://localhost:3000/api/posts').then((res) =>
+    res.json()
+  );
+
+  // const Iplocation = await fetch(
+  //   'https://ipinfo.io/json?token=4cf5770462499b'
+  // ).then((res) => res.json());
 
   return {
     props: {
       data,
       cardData,
+      PostData,
+      // Iplocation,
     },
   };
 }
