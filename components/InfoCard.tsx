@@ -25,8 +25,8 @@ const InfoCard = ({
   total,
 }: Props) => {
   return (
-    <div className="flex flex-col py-7 px-4 borber-b cursor-pointer hover:opacity-80 hover:shadow-lg pr-4 transition duration-200 ease-out rounded-xl max-w-sm">
-      <div className="relative h-24 w-40 md:h-80 md:w-[23rem] flex-shrink-0">
+    <div className="flex flex-col py-7 md:px-4 borber-b cursor-pointer hover:opacity-80 hover:shadow-lg pr-4 transition duration-200 ease-out rounded-xl mx-auto">
+      <div className="relative h-80 w-[23rem] flex-shrink-0">
         <Image
           src={img}
           fill

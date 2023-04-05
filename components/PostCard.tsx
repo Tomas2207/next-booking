@@ -9,7 +9,7 @@ type Props = {
 
 const PostCard = ({ image, title }: Props) => {
   return (
-    <div className="h-[20rem] w-[22rem] relative rounded-xl overflow-hidden cursor-pointer">
+    <div className="h-[20rem] w-[22rem] relative rounded-xl overflow-hidden cursor-pointer mx-auto">
       <Image src={image} alt="post" fill className="object-cover" />
       <div className="absolute bottom-0 bg-neutral-800 w-full text-white bg-opacity-60 px-2 py-4">
         <h3 className="text-lg">{title}</h3>

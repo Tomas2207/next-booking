@@ -8,13 +8,13 @@ let settings = {
 
   responsive: [
     {
-      breakpoint: 960,
+      breakpoint: 1300,
       settings: {
         slidesToShow: 2,
       },
     },
     {
-      breakpoint: 680,
+      breakpoint: 900,
       settings: {
         slidesToShow: 1,
       },

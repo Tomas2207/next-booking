@@ -4,7 +4,6 @@ import InfoCard from '@/components/InfoCard';
 import Map from '@/components/Map';
 import { format } from 'date-fns';
 import { useRouter } from 'next/router';
-import Header from '@/components/Header';
 import { HomeIcon } from '@heroicons/react/24/solid';
 
 type Props = {
@@ -68,14 +67,14 @@ const Search = ({ searchResults, hotelResults }: any) => {
     <div>
       <div className="relative h-20 mt-2 flex items-center ">
         <div className="cursor-pointer" onClick={() => router.push('/')}>
-          <HomeIcon className="text-black w-12 h-12 mx-6 bg-[#96CBBC] p-2 rounded-full" />
+          <HomeIcon className="text-black w-12 h-12 mx-2 sm:mx-6 bg-[#96CBBC] p-2 rounded-full" />
         </div>
-        <div className="flex-grow">
+        <div className="w-[70%] mx-auto sm:w-[90%]">
           <Searchbar placeholder={`${location} | ${range} | ${noOfGuests}`} />
         </div>
       </div>
       <main className="flex">
-        <section className="flex-grow pt-4 px-6">
+        <section className="flex-grow pt-4 px-2 sm:px-6">
           <p className="text-xs">
             {hotelResults.count} Stays | {range} | {noOfGuests} guests
           </p>
@@ -98,7 +97,11 @@ const Search = ({ searchResults, hotelResults }: any) => {
                 location={results.city}
                 description={results.address}
                 star={results.review_score}
-                price={`${results.composite_price_breakdown.gross_amount.currency}  ${results.composite_price_breakdown.gross_amount.value}`}
+                price={`${
+                  results.composite_price_breakdown.gross_amount.currency
+                }  ${parseFloat(
+                  results.composite_price_breakdown.gross_amount.value
+                ).toFixed(2)}`}
                 total={
                   results.composite_price_breakdown.gross_amount_per_night.value
                 }
@@ -141,7 +144,6 @@ export async function getServerSideProps({ query }: any) {
 
   console.log('date', startDate, endDate);
 
-  console.log(searchResults);
   let hotelResults;
 
   if (searchResults[0] !== undefined) {
@@ -153,6 +155,8 @@ export async function getServerSideProps({ query }: any) {
   } else {
     hotelResults = { count: 0 };
   }
+
+  console.log('hi', hotelResults);
 
   return {
     props: {
