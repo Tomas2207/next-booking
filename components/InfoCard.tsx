@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { HeartIcon } from '@heroicons/react/24/outline';
-import { HeartIcon as HeartSolid } from '@heroicons/react/24/solid';
+import { HeartIcon as HeartSolid, MapPinIcon } from '@heroicons/react/24/solid';
 import { StarIcon } from '@heroicons/react/24/solid';
 
 type Props = {
@@ -26,7 +26,7 @@ const InfoCard = ({
 }: Props) => {
   return (
     <div className="flex flex-col py-7 md:px-4 borber-b cursor-pointer hover:opacity-80 hover:shadow-lg pr-4 transition duration-200 ease-out rounded-xl mx-auto">
-      <div className="relative h-80 w-[23rem] flex-shrink-0">
+      <div className="relative h-80 w-[21rem] flex-shrink-0">
         <Image
           src={img}
           fill
@@ -36,8 +36,12 @@ const InfoCard = ({
         <HeartIcon className="h-7 cursor-pointer absolute right-2 top-2" />
       </div>
       <div className="flex flex-col flex-grow py-5">
-        <div className="flex justify-between pt-2">
-          <p>{location}</p>
+        <div className="flex justify-between pt-2 mb-2">
+          <div className="flex gap-1">
+            <MapPinIcon height={24} />
+            <p>{location}</p>
+          </div>
+
           <p className="flex items-center">
             <StarIcon className="h-5 text-[#96CBBC]" />
             {star}

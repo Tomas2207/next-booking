@@ -8,11 +8,13 @@ import Posts from '@/components/Posts';
 import { LightBulbIcon, MapIcon } from '@heroicons/react/24/solid';
 import Services from '@/components/Services';
 import Experience from '@/components/Experience';
+import Reviews from '@/components/Reviews';
 
 type Data = {
   data: Item[];
   cardData: CardItem[];
   PostData: Posts[];
+  ReviewData: Review[];
   Iplocation: {
     city: string;
   };
@@ -21,6 +23,13 @@ type Data = {
 type Posts = {
   image: string;
   title: string;
+};
+
+type Review = {
+  title: string;
+  review: string;
+  image: string;
+  name: string;
 };
 
 type Item = {
@@ -33,7 +42,13 @@ type CardItem = {
   title: string;
 };
 
-export default function Home({ data, cardData, Iplocation, PostData }: Data) {
+export default function Home({
+  data,
+  cardData,
+  Iplocation,
+  PostData,
+  ReviewData,
+}: Data) {
   return (
     <>
       <Head>
@@ -64,8 +79,10 @@ export default function Home({ data, cardData, Iplocation, PostData }: Data) {
             ))}
           </div>
         </section>
+        <div id="about" />
         <Services />
         <Experience />
+        <div id="inspired" />
         <section className="mt-36">
           <h2 className="text-4xl font-semibold pb-1 text-neutral-800 flex items-center gap-2">
             <LightBulbIcon height={24} />
@@ -81,6 +98,8 @@ export default function Home({ data, cardData, Iplocation, PostData }: Data) {
           description="Planner Recommendations"
           buttonText="Get Inspired"
         />
+        <div id="reviews" />
+        <Reviews ReviewData={ReviewData} />
       </main>
       <Footer />
     </>
@@ -97,6 +116,9 @@ export async function getStaticProps() {
   const PostData = await fetch('http://localhost:3000/api/posts').then((res) =>
     res.json()
   );
+  const ReviewData = await fetch('http://localhost:3000/api/reviews').then(
+    (res) => res.json()
+  );
 
   // const Iplocation = await fetch(
   //   'https://ipinfo.io/json?token=4cf5770462499b'
@@ -107,6 +129,7 @@ export async function getStaticProps() {
       data,
       cardData,
       PostData,
+      ReviewData,
       // Iplocation,
     },
   };

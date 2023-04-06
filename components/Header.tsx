@@ -1,5 +1,5 @@
 import { BookmarkIcon } from '@heroicons/react/24/solid';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Header = () => {
   return (
@@ -10,15 +10,15 @@ const Header = () => {
       </h2>
       <ul className="hidden text-white font-semibold sm:flex gap-8 mx-auto">
         <li className="group cursor-pointer flex flex-col">
-          <div>Home</div>
+          <a href="#about">About</a>
           <div className="nav-link" />
         </li>
         <li className="group cursor-pointer flex flex-col">
-          <div>About</div>
+          <a href="#inspired">Get Inspired</a>
           <div className="nav-link" />
         </li>
         <li className="group cursor-pointer flex flex-col">
-          <div>Explore</div>
+          <a href="#reviews">Reviews</a>
           <div className="nav-link" />
         </li>
       </ul>

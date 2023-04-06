@@ -23,8 +23,6 @@ type Props = {
 const Search = ({ searchResults, hotelResults }: any) => {
   const router = useRouter();
 
-  console.log(hotelResults);
-
   let { location, startDate, endDate, noOfGuests } = router.query;
 
   startDate = startDate?.toString();
@@ -81,13 +79,13 @@ const Search = ({ searchResults, hotelResults }: any) => {
           <h1 className="text-3xl font-semibold mt-2 mb-6">
             Stays in {location}
           </h1>
-          <div className="hidden lg:inline-flex mb-5 space-x-3 text-gray-800 whitespace-nowrap">
+          {/* <div className="hidden lg:inline-flex mb-5 space-x-3 text-gray-800 whitespace-nowrap">
             <button className="button">Cancellation Flexibility</button>
             <button className="button">Type of Home</button>
             <button className="button">Price</button>
             <button className="button">Rooms and Beds</button>
             <button className="button">More Filters</button>
-          </div>
+          </div> */}
           <div className="flex justify-start flex-wrap">
             {hotelResults.result.map((results: any, i: any) => (
               <InfoCard
@@ -142,8 +140,6 @@ export async function getServerSideProps({ query }: any) {
     res.json()
   );
 
-  console.log('date', startDate, endDate);
-
   let hotelResults;
 
   if (searchResults[0] !== undefined) {
@@ -155,8 +151,6 @@ export async function getServerSideProps({ query }: any) {
   } else {
     hotelResults = { count: 0 };
   }
-
-  console.log('hi', hotelResults);
 
   return {
     props: {

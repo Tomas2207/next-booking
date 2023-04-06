@@ -58,7 +58,7 @@ const Map = ({ searchResults }) => {
               aria-label="push-pin"
               role="img"
             >
-              <MapPinIcon className="h-12 w-12" />
+              <MapPinIcon className="h-10 w-10 text-neutral-700" />
             </p>
           </Marker>
           {selectedLocation.longitude === result.longitude

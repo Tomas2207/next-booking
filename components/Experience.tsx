@@ -40,7 +40,7 @@ const Experience = () => {
           </div>
           <div>
             <div className="text-4xl font-bold text-[#96CBBC] ">
-              <CountUp end={60} delay={1} duration={5} enableScrollSpy />
+              <CountUp end={500} delay={1} duration={5} enableScrollSpy />
               k+
             </div>
             <p className="text-neutral-600">Satisfied Customers</p>
