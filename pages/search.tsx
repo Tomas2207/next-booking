@@ -5,6 +5,7 @@ import Map from '@/components/Map';
 import { format } from 'date-fns';
 import { useRouter } from 'next/router';
 import { HomeIcon } from '@heroicons/react/24/solid';
+import ProfileCard from '@/components/ProfileCard';
 
 type Props = {
   searchResults: {
@@ -63,14 +64,15 @@ const Search = ({ searchResults, hotelResults }: any) => {
 
   return (
     <div>
-      <div className="relative h-20 mt-2 flex items-center ">
+      <header className="relative h-20 mt-2 flex items-center ">
         <div className="cursor-pointer" onClick={() => router.push('/')}>
           <HomeIcon className="text-black w-12 h-12 mx-2 sm:mx-6 bg-[#96CBBC] p-2 rounded-full" />
         </div>
         <div className="w-[70%] mx-auto sm:w-[90%]">
           <Searchbar placeholder={`${location} | ${range} | ${noOfGuests}`} />
         </div>
-      </div>
+        <ProfileCard />
+      </header>
       <main className="flex">
         <section className="flex-grow pt-4 px-2 sm:px-6">
           <p className="text-xs">
@@ -79,13 +81,7 @@ const Search = ({ searchResults, hotelResults }: any) => {
           <h1 className="text-3xl font-semibold mt-2 mb-6">
             Stays in {location}
           </h1>
-          {/* <div className="hidden lg:inline-flex mb-5 space-x-3 text-gray-800 whitespace-nowrap">
-            <button className="button">Cancellation Flexibility</button>
-            <button className="button">Type of Home</button>
-            <button className="button">Price</button>
-            <button className="button">Rooms and Beds</button>
-            <button className="button">More Filters</button>
-          </div> */}
+
           <div className="flex justify-start flex-wrap">
             {hotelResults.result.map((results: any, i: any) => (
               <InfoCard

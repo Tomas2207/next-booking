@@ -1,7 +1,13 @@
 import { BookmarkIcon } from '@heroicons/react/24/solid';
+import { useSession, signIn, signOut } from 'next-auth/react';
+import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
+import ProfileCard from './ProfileCard';
 
 const Header = () => {
+  const { data: session } = useSession();
+
+  const [showMenu, setShowMenu] = useState(false);
   return (
     <header className="w-full flex items-center h-20 absolute z-[99]">
       <h2 className="mb-4 ml-4 sm:ml-8 font-bold text-2xl flex">
@@ -22,9 +28,7 @@ const Header = () => {
           <div className="nav-link" />
         </li>
       </ul>
-      <button className="mr-4 sm:mr-8 px-4 mb-3 py-2 bg-neutral-800 text-white rounded-lg hover:bg-neutral-700 transition duration-150 ease-out ml-auto sm:ml-0">
-        Sign Up
-      </button>
+      <ProfileCard />
     </header>
   );
 };

@@ -5,7 +5,7 @@ import { getCenter } from 'geolib';
 import { MapPinIcon } from '@heroicons/react/24/solid';
 
 const Map = ({ searchResults }) => {
-  console.log(searchResults);
+
   const [selectedLocation, setSelectedLocation] = useState({});
 
   const coordinates = searchResults.map((result) => ({
@@ -13,9 +13,7 @@ const Map = ({ searchResults }) => {
     latitude: result.latitude,
   }));
 
-  useEffect(() => {
-    console.log(selectedLocation);
-  }, [selectedLocation]);
+ 
 
   let center = getCenter(coordinates);
 
@@ -61,9 +59,7 @@ const Map = ({ searchResults }) => {
               <MapPinIcon className="h-10 w-10 text-neutral-700" />
             </p>
           </Marker>
-          {selectedLocation.longitude === result.longitude
-            ? console.log('yes')
-            : null}
+          
 
           {selectedLocation.longitude === result.longitude ? (
             <Popup

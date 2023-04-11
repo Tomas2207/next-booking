@@ -50,7 +50,7 @@ const Searchbar = ({ placeholder }: Props) => {
   };
 
   const handleSelect = (ranges: any) => {
-    console.log(ranges);
+  
     setStartDate(ranges.selection.startDate);
     setEndDate(ranges.selection.endDate);
   };

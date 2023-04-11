@@ -9,7 +9,7 @@ import PostCard from './PostCard';
 
 const Posts = (props) => {
   const { PostData } = props;
-  console.log('props', props);
+
   return (
     <div className="w-full py-6 bg-opacity-60 flex justify-center">
       <Slider {...settings} className="w-[95%]">
