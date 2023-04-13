@@ -50,7 +50,6 @@ const Searchbar = ({ placeholder }: Props) => {
   };
 
   const handleSelect = (ranges: any) => {
-  
     setStartDate(ranges.selection.startDate);
     setEndDate(ranges.selection.endDate);
   };
@@ -61,8 +60,15 @@ const Searchbar = ({ placeholder }: Props) => {
       <div className="flex items-center md:border-2 rounded-full py-2 md:shadow-sm">
         <input
           type="text"
+          placeholder={'Start your search'}
+          className="flex-grow pl-5 bg-transparent outline-none text-gray-600 placeholder-gray-400 sm:hidden"
+          value={searchInput}
+          onChange={(e) => setSearchInput(e.target.value)}
+        />
+        <input
+          type="text"
           placeholder={placeholder || 'Start your search'}
-          className="flex-grow pl-5 bg-transparent outline-none text-gray-600 placeholder-gray-400"
+          className="flex-grow pl-5 bg-transparent outline-none text-gray-600 placeholder-gray-400 hidden sm:inline-flex"
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
         />

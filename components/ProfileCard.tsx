@@ -11,7 +11,7 @@ const ProfileCard = () => {
       {!session ? (
         <button
           onClick={() => signIn()}
-          className="mr-4 sm:mr-8 px-4 mb-3 py-2 bg-neutral-800 text-white rounded-lg hover:bg-neutral-700 transition duration-150 ease-out ml-auto sm:ml-0"
+          className="mr-4 sm:mr-8 px-4 py-2 bg-neutral-800 text-white rounded-lg hover:bg-neutral-700 transition duration-150 ease-out ml-auto sm:ml-0"
         >
           Sign In
         </button>

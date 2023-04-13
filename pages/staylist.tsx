@@ -1,15 +1,32 @@
 import Footer from '@/components/Footer';
 import InfoCard from '@/components/InfoCard';
 import ProfileCard from '@/components/ProfileCard';
-import Stay from '@/models/Stay';
-import connectMongo from '@/utils/connectMongo';
 import { BookmarkIcon, HomeIcon } from '@heroicons/react/24/solid';
 import { useRouter } from 'next/router';
 import React from 'react';
+import { getStays } from './api/stays/get';
+import useSwr from 'swr';
+import { useSession } from 'next-auth/react';
 
-const Staylist = ({ hotelResults }: any) => {
+const fetcher = async () => {
+  const response = await fetch('/api/stays/get');
+  const data = await response.json();
+  console.log('data', data);
+  return data;
+};
+
+const Staylist = () => {
   const router = useRouter();
-  console.log(hotelResults);
+  const { data, error } = useSwr('stays', fetcher);
+  const { data: session, status } = useSession();
+
+  if (status === 'unauthenticated') {
+    router.push('/');
+  }
+
+  if (error) return <div>An error has ocurred</div>;
+
+  if (!data || status === 'loading') return <div>Loading....</div>;
 
   return (
     <div>
@@ -19,14 +36,14 @@ const Staylist = ({ hotelResults }: any) => {
         </div>
         <ProfileCard />
       </header>
-      {hotelResults.length > 0 ? (
+      {data.stays.length > 0 ? (
         <main className="flex flex-col">
           <h1 className="flex-grow pt-4 px-2 sm:px-6 text-3xl font-semibold mt-2 mb-6">
             Stay List
           </h1>
           <section className="flex-grow pt-4 px-2 sm:px-6">
             <div className="flex justify-start flex-wrap">
-              {hotelResults.map((results: any, i: any) => (
+              {data.stays.map((results: any, i: any) => (
                 <InfoCard
                   key={i}
                   title={results.title}
@@ -63,14 +80,12 @@ const Staylist = ({ hotelResults }: any) => {
   );
 };
 
-export async function getStaticProps() {
-  await connectMongo();
-
+export const getStaticProps = async () => {
   //get every stay
-  let hotelResults = await Stay.find({}, { _id: 0 }).lean();
+  let hotelResults = await getStays();
 
   return {
     props: { hotelResults },
   };
-}
+};
 export default Staylist;

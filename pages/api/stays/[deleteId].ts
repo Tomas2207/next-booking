@@ -22,8 +22,7 @@ export default async function addText(
       $and: [{ user: mySession?.user?.email }, { description: deleteId }],
     });
 
-    if (deletedStay) res.json({ deletedStay });
-    else res.json({ error: 'not found' });
+    res.json({ deletedStay });
   } catch (error) {
     console.log(error);
     res.json({ error });

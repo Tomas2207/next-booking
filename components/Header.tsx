@@ -28,7 +28,9 @@ const Header = () => {
           <div className="nav-link" />
         </li>
       </ul>
-      <ProfileCard />
+      <div className="ml-auto sm:ml-0 mb-4">
+        <ProfileCard />
+      </div>
     </header>
   );
 };

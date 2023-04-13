@@ -35,30 +35,33 @@ const InfoCard = ({
   const router = useRouter();
 
   const handleHeart = async () => {
-    setLoading(true);
+    if (!session) router.replace('/api/auth/signin');
+    else {
+      setLoading(true);
 
-    const response = await fetch(`/api/stays/add`, {
-      method: 'POST',
-      body: JSON.stringify({
-        img,
-        location,
-        title,
-        description,
-        star,
-        price,
-        total,
-        list: 'My Stays',
-        user: session?.user?.email,
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+      const response = await fetch(`/api/stays/add`, {
+        method: 'POST',
+        body: JSON.stringify({
+          img,
+          location,
+          title,
+          description,
+          star,
+          price,
+          total,
+          list: 'My Stays',
+          user: session?.user?.email,
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
 
-    const data = await response.json();
+      const data = await response.json();
 
-    setLoading(false);
-    setFillHeart(true);
+      setLoading(false);
+      setFillHeart(true);
+    }
   };
 
   const deleteHeart = async () => {

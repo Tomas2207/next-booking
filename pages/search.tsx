@@ -41,9 +41,10 @@ const Search = ({ searchResults, hotelResults }: any) => {
           <div className="cursor-pointer" onClick={() => router.push('/')}>
             <BookmarkIcon className="text-black w-12 h-12 mx-6 bg-[#96CBBC] p-2 rounded-full" />
           </div>
-          <div className="w-full">
+          <div className="w-[60%]">
             <Searchbar placeholder={`${location} | ${range} | ${noOfGuests}`} />
           </div>
+          <ProfileCard />
         </div>
 
         <div className="w-full h-full flex flex-col items-center justify-center">
@@ -64,11 +65,11 @@ const Search = ({ searchResults, hotelResults }: any) => {
 
   return (
     <div>
-      <header className="relative h-20 mt-2 flex items-center ">
+      <header className="relative h-20 mt-2 flex items-center">
         <div className="cursor-pointer" onClick={() => router.push('/')}>
           <BookmarkIcon className="text-black w-12 h-12 mx-2 sm:mx-6 bg-[#96CBBC] p-2 rounded-full" />
         </div>
-        <div className="w-[70%] mx-auto sm:w-[90%]">
+        <div className="w-[50%] mx-auto sm:w-[70%]">
           <Searchbar placeholder={`${location} | ${range} | ${noOfGuests}`} />
         </div>
         <ProfileCard />
