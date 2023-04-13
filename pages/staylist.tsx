@@ -1,29 +1,32 @@
 import Footer from '@/components/Footer';
 import InfoCard from '@/components/InfoCard';
 import ProfileCard from '@/components/ProfileCard';
-import { HomeIcon } from '@heroicons/react/24/solid';
+import Stay from '@/models/Stay';
+import connectMongo from '@/utils/connectMongo';
+import { BookmarkIcon, HomeIcon } from '@heroicons/react/24/solid';
 import { useRouter } from 'next/router';
 import React from 'react';
 
 const Staylist = ({ hotelResults }: any) => {
   const router = useRouter();
+  console.log(hotelResults);
 
   return (
     <div>
       <header className="relative h-20 mt-2 flex justify-between">
         <div className="cursor-pointer" onClick={() => router.push('/')}>
-          <HomeIcon className="text-black w-12 h-12 mx-2 sm:mx-6 bg-[#96CBBC] p-2 rounded-full" />
+          <BookmarkIcon className="text-black w-12 h-12 mx-2 sm:mx-6 bg-[#96CBBC] p-2 rounded-full" />
         </div>
         <ProfileCard />
       </header>
-      {hotelResults.stays.length > 0 ? (
+      {hotelResults.length > 0 ? (
         <main className="flex flex-col">
           <h1 className="flex-grow pt-4 px-2 sm:px-6 text-3xl font-semibold mt-2 mb-6">
             Stay List
           </h1>
           <section className="flex-grow pt-4 px-2 sm:px-6">
             <div className="flex justify-start flex-wrap">
-              {hotelResults.stays.map((results: any, i: any) => (
+              {hotelResults.map((results: any, i: any) => (
                 <InfoCard
                   key={i}
                   title={results.title}
@@ -61,9 +64,10 @@ const Staylist = ({ hotelResults }: any) => {
 };
 
 export async function getStaticProps() {
-  const hotelResults = await fetch('http://localhost:3000/api/stays/get').then(
-    (res) => res.json()
-  );
+  await connectMongo();
+
+  //get every stay
+  let hotelResults = await Stay.find({}, { _id: 0 }).lean();
 
   return {
     props: { hotelResults },

@@ -4,10 +4,9 @@ import Image from 'next/image';
 type Props = {
   img: string;
   location: string;
-  distance: string;
 };
 
-const SmallCard = ({ img, location, distance }: Props) => {
+const SmallCard = ({ img, location }: Props) => {
   return (
     <div className="flex items-end m-2 mt-5 rounded-xl cursor-pointer hover:bg-gray-100 hover:scale-105 transition transform duration-200 ease-out h-[12rem] overflow-hidden">
       {/* left */}

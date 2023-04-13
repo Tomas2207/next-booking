@@ -4,7 +4,7 @@ import InfoCard from '@/components/InfoCard';
 import Map from '@/components/Map';
 import { format } from 'date-fns';
 import { useRouter } from 'next/router';
-import { HomeIcon } from '@heroicons/react/24/solid';
+import { BookmarkIcon, HomeIcon } from '@heroicons/react/24/solid';
 import ProfileCard from '@/components/ProfileCard';
 
 type Props = {
@@ -39,7 +39,7 @@ const Search = ({ searchResults, hotelResults }: any) => {
       <div className="overflow-hidden h-screen">
         <div className="relative h-20 mt-2 flex items-center ">
           <div className="cursor-pointer" onClick={() => router.push('/')}>
-            <HomeIcon className="text-black w-12 h-12 mx-6 bg-[#96CBBC] p-2 rounded-full" />
+            <BookmarkIcon className="text-black w-12 h-12 mx-6 bg-[#96CBBC] p-2 rounded-full" />
           </div>
           <div className="w-full">
             <Searchbar placeholder={`${location} | ${range} | ${noOfGuests}`} />
@@ -66,7 +66,7 @@ const Search = ({ searchResults, hotelResults }: any) => {
     <div>
       <header className="relative h-20 mt-2 flex items-center ">
         <div className="cursor-pointer" onClick={() => router.push('/')}>
-          <HomeIcon className="text-black w-12 h-12 mx-2 sm:mx-6 bg-[#96CBBC] p-2 rounded-full" />
+          <BookmarkIcon className="text-black w-12 h-12 mx-2 sm:mx-6 bg-[#96CBBC] p-2 rounded-full" />
         </div>
         <div className="w-[70%] mx-auto sm:w-[90%]">
           <Searchbar placeholder={`${location} | ${range} | ${noOfGuests}`} />
