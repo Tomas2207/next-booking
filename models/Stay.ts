@@ -1,6 +1,10 @@
 import mongoose, { Schema, model, models } from 'mongoose';
 
 const staySchema = new mongoose.Schema({
+  id: {
+    type: String,
+    required: true,
+  },
   img: {
     type: String,
     required: true,

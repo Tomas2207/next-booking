@@ -46,6 +46,7 @@ const Staylist = () => {
               {data.stays.map((results: any, i: any) => (
                 <InfoCard
                   key={i}
+                  id={results.id}
                   title={results.title}
                   img={results.img}
                   location={results.location}

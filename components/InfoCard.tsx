@@ -8,6 +8,7 @@ import { AiOutlineLoading } from 'react-icons/ai';
 import { useRouter } from 'next/router';
 
 type Props = {
+  id: string;
   img: string;
   location: string;
   title: string;
@@ -20,6 +21,7 @@ type Props = {
 };
 
 const InfoCard = ({
+  id,
   img,
   location,
   title,
@@ -42,6 +44,7 @@ const InfoCard = ({
       const response = await fetch(`/api/stays/add`, {
         method: 'POST',
         body: JSON.stringify({
+          id,
           img,
           location,
           title,
@@ -66,7 +69,7 @@ const InfoCard = ({
 
   const deleteHeart = async () => {
     setLoading(true);
-    const response = await fetch(`/api/stays/${description}`, {
+    const response = await fetch(`/api/stays/${id}`, {
       method: 'DELETE',
     }).then((res) => res.json());
     setLoading(false);

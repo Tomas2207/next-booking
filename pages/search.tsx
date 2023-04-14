@@ -37,18 +37,20 @@ const Search = ({ searchResults, hotelResults }: any) => {
   if (hotelResults.count === 0)
     return (
       <div className="overflow-hidden h-screen">
-        <div className="relative h-20 mt-2 flex items-center ">
+        <header className="relative h-20 mt-2 flex items-center">
           <div className="cursor-pointer" onClick={() => router.push('/')}>
-            <BookmarkIcon className="text-black w-12 h-12 mx-6 bg-[#96CBBC] p-2 rounded-full" />
+            <BookmarkIcon className="text-black w-12 h-12 mx-2 sm:mx-6 bg-[#96CBBC] p-2 rounded-full" />
           </div>
-          <div className="w-[60%]">
+          <div className="mx-auto sm:w-[70%] absolute top-20 left-1 right-1 sm:static z-[56]">
             <Searchbar placeholder={`${location} | ${range} | ${noOfGuests}`} />
           </div>
-          <ProfileCard />
-        </div>
+          <div className="ml-auto sm:ml-0 z-[99]">
+            <ProfileCard />
+          </div>
+        </header>
 
         <div className="w-full h-full flex flex-col items-center justify-center">
-          <div className="text-2xl font-bold z-[99] bg-white pt-12 mb-20">
+          <div className="text-2xl font-bold z-[55] bg-white pt-12 mb-20">
             No Results :(
           </div>
           <video
@@ -69,12 +71,14 @@ const Search = ({ searchResults, hotelResults }: any) => {
         <div className="cursor-pointer" onClick={() => router.push('/')}>
           <BookmarkIcon className="text-black w-12 h-12 mx-2 sm:mx-6 bg-[#96CBBC] p-2 rounded-full" />
         </div>
-        <div className="w-[50%] mx-auto sm:w-[70%]">
+        <div className="mx-auto sm:w-[70%] absolute top-20 left-1 right-1 sm:static">
           <Searchbar placeholder={`${location} | ${range} | ${noOfGuests}`} />
         </div>
-        <ProfileCard />
+        <div className="ml-auto sm:ml-0 z-[99]">
+          <ProfileCard />
+        </div>
       </header>
-      <main className="flex">
+      <main className="flex mt-12 sm:mt-0">
         <section className="flex-grow pt-4 px-2 sm:px-6">
           <p className="text-xs">
             {hotelResults.count} Stays | {range} | {noOfGuests} guests
@@ -87,6 +91,7 @@ const Search = ({ searchResults, hotelResults }: any) => {
             {hotelResults.result.map((results: any, i: any) => (
               <InfoCard
                 key={i}
+                id={results.id}
                 title={results.hotel_name}
                 img={results.max_photo_url}
                 location={results.city}

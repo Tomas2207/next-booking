@@ -19,7 +19,7 @@ export default async function addText(
 
     //get every stay
     const deletedStay = await Stay.findOneAndDelete({
-      $and: [{ user: mySession?.user?.email }, { description: deleteId }],
+      $and: [{ user: mySession?.user?.email }, { id: deleteId }],
     });
 
     res.json({ deletedStay });

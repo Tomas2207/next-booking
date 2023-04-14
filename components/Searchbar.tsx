@@ -31,15 +31,20 @@ const Searchbar = ({ placeholder }: Props) => {
   const router = useRouter();
 
   const search = () => {
-    router.push({
-      pathname: '/search',
-      query: {
-        location: searchInput,
-        startDate: startDate.toISOString(),
-        endDate: endDate.toISOString(),
-        noOfGuests,
-      },
-    });
+    if (startDate.toISOString() === endDate.toISOString()) {
+      alert('checkin date cannot be the same as checkout date');
+    } else {
+      router.push({
+        pathname: '/search',
+        query: {
+          location: searchInput,
+          startDate: startDate.toISOString(),
+          endDate: endDate.toISOString(),
+          noOfGuests,
+        },
+      });
+    }
+
     setSearchInput('');
   };
 
