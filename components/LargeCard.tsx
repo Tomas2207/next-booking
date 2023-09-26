@@ -10,7 +10,7 @@ type Props = {
 
 const LargeCard = ({ img, title, description, buttonText }: Props) => {
   return (
-    <section className="relative my-12 bg-[#96CBBC] rounded-xl overflow-hidden">
+    <section className="relative my-12 bg-[#96CBBC] rounded-xl overflow-hidden ">
       <div className="relative h-96 min-w-[300px]">
         <video
           src={img}

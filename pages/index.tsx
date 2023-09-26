@@ -36,8 +36,8 @@ export default function Home() {
       </Head>
       <Header />
       <Banner />
-      <main className="max-w-7xl mx-auto px-8 sm:px-16">
-        <section className="pt-4">
+      <main className="w-full">
+        <section className="pt-4 px-8 xl:px-32 2xl:px-60 mx-auto">
           <h2 className="text-4xl font-semibold pb-1 text-neutral-800 flex items-center gap-2 flex-wrap">
             <MapIcon height={24} />
             <p className="text-[#96CBBC]">Popular</p>
@@ -53,9 +53,11 @@ export default function Home() {
         </section>
         <div id="about" />
         <Services />
-        <Experience />
+        <div className="bg-[#1D3557] py-12 mt-12">
+          <Experience />
+        </div>
         <div id="inspired" />
-        <section className="mt-36">
+        <section className="mt-36 px-8 xl:px-32 2xl:px-60">
           <h2 className="text-4xl font-semibold pb-1 text-neutral-800 flex items-center gap-2">
             <LightBulbIcon height={24} />
             Get <p className="text-[#96CBBC]">Inspired</p>
@@ -63,13 +65,14 @@ export default function Home() {
           <p className="text-neutral-600">With Our Creators recent Posts</p>
           <Posts PostData={PostData} />
         </section>
-
-        <LargeCard
-          img="https://res.cloudinary.com/dbejjbpof/video/upload/v1679377914/45326-travel_fdixxn.mp4"
-          title="Find Your Next Trip"
-          description="Planner Recommendations"
-          buttonText="Get Inspired"
-        />
+        <div className="px-8 xl:px-32 2xl:px-60">
+          <LargeCard
+            img="https://res.cloudinary.com/dbejjbpof/video/upload/v1679377914/45326-travel_fdixxn.mp4"
+            title="Find Your Next Trip"
+            description="Planner Recommendations"
+            buttonText="Get Inspired"
+          />
+        </div>
         <div id="reviews" />
         <Reviews ReviewData={ReviewData} />
       </main>

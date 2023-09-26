@@ -8,7 +8,7 @@ import React from 'react';
 
 const Services = () => {
   return (
-    <div className="flex flex-col sm:flex-row gap-5 mt-36">
+    <div className="flex flex-col sm:flex-row justify-between mt-28 px-8 xl:px-32 2xl:px-60">
       <div>
         <p className="text-[#96CBBC] font-bold text-2xl">What We Offer</p>
         <h2 className="text-neutral-800 text-4xl font-bold">
