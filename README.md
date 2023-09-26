@@ -1,5 +1,7 @@
 # Planner
 
+https://user-images.githubusercontent.com/87822305/231992454-9919ca2a-5482-4034-9098-388813e68ae3.mp4
+
 Planner is a booking website that allows you to search for stays all around the world. The website uses the Booking.com API to fetch stays and Mapbox to display a map with the locations of these stays. You can also sign in with Google or GitHub and save your favorite stays on your profile.
 
 ## Features
@@ -14,13 +16,13 @@ Planner Stays has the following features:
 
 ## Getting Started
 
-To use Planner Stays, simply visit the following URL: [https://planner-tomas2207.vercel.app.](https://planner-tomas2207.vercel.app)
+To use Planner, simply visit the following URL: [https://planner-tomas2207.vercel.app.](https://planner-tomas2207.vercel.app)
 
 You can then search for stays by entering a location, check-in and check-out dates, and the number of guests. If you would like to save a stay to your profile, simply sign in with Google or GitHub and click on the **Heart** button on the stay card.
 
 ## Development
 
-To run Planner Stays locally, you can follow these steps:
+To run Planner locally, you can follow these steps:
 
 - Clone the repository: **git clone https://github.com/Tomas2207/planner-stays.git**
 - Install dependencies: **npm install**
