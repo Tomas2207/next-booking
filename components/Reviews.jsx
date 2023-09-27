@@ -15,7 +15,7 @@ const Reviews = (props) => {
   const { ReviewData } = props;
 
   return (
-    <div className="w-full py-6 bg-opacity-60 flex flex-col justify-center items-center mb-12 px-8 xl:px-32 2xl:px-60 ">
+    <div className="w-full py-6 bg-opacity-60 flex flex-col justify-center items-center mb-12 px-2 sm:px-8 xl:px-32 2xl:px-60">
       <div className="self-start pb-1">
         <h2 className="text-4xl font-semibold pb-1 text-neutral-800 flex items-center gap-2">
           <PencilSquareIcon height={24} />

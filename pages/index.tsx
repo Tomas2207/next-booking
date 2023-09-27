@@ -37,7 +37,7 @@ export default function Home() {
       <Header />
       <Banner />
       <main className="w-full">
-        <section className="pt-4 px-8 xl:px-32 2xl:px-60 mx-auto">
+        <section className="pt-4 px-2 sm:px-8 xl:px-32 2xl:px-60 mx-auto">
           <h2 className="text-4xl font-semibold pb-1 text-neutral-800 flex items-center gap-2 flex-wrap">
             <MapIcon height={24} />
             <p className="text-[#96CBBC]">Popular</p>
@@ -57,7 +57,7 @@ export default function Home() {
           <Experience />
         </div>
         <div id="inspired" />
-        <section className="mt-36 px-8 xl:px-32 2xl:px-60">
+        <section className="mt-36 px-2 sm:px-8 xl:px-32 2xl:px-60">
           <h2 className="text-4xl font-semibold pb-1 text-neutral-800 flex items-center gap-2">
             <LightBulbIcon height={24} />
             Get <p className="text-[#96CBBC]">Inspired</p>
@@ -65,7 +65,7 @@ export default function Home() {
           <p className="text-neutral-600">With Our Creators recent Posts</p>
           <Posts PostData={PostData} />
         </section>
-        <div className="px-8 xl:px-32 2xl:px-60">
+        <div className="px-2 sm:px-8 xl:px-32 2xl:px-60">
           <LargeCard
             img="https://res.cloudinary.com/dbejjbpof/video/upload/v1679377914/45326-travel_fdixxn.mp4"
             title="Find Your Next Trip"

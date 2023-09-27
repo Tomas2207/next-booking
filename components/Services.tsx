@@ -8,7 +8,7 @@ import React from 'react';
 
 const Services = () => {
   return (
-    <div className="flex flex-col sm:flex-row justify-between mt-28 px-8 xl:px-32 2xl:px-60">
+    <div className="flex flex-col sm:flex-row justify-between mt-28 px-2 sm:px-8 xl:px-32 2xl:px-60">
       <div>
         <p className="text-[#96CBBC] font-bold text-2xl">What We Offer</p>
         <h2 className="text-neutral-800 text-4xl font-bold">
@@ -18,7 +18,7 @@ const Services = () => {
           The Benefits You Get When Using Planner
         </p>
       </div>
-      <div className="mt-6 flex flex-col sm:flex-row justify-around gap-4 sm:gap-2">
+      <div className="mt-6 flex flex-col sm:flex-row justify-between gap-4 sm:gap-8">
         <div className="flex flex-col items-center text-center">
           <GlobeAsiaAustraliaIcon height={52} className="text-[#96CBBC]" />
           <p className="font-bold my-1">Choose</p>

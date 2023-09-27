@@ -11,7 +11,7 @@ type Props = {
 
 const Review = ({ title, review, image, username }: Props) => {
   return (
-    <div className="flex flex-col mx-4 px-6 h-[24rem] w-[21rem] hover:bg-[#96CBBC] p-4 rounded-md bg-[#1D3557] transition duration-250 ease-out cursor-pointer group relative">
+    <div className="flex flex-col mx-auto px-6 h-[24rem] w-[21rem] hover:bg-[#96CBBC] p-4 rounded-md bg-[#1D3557] transition duration-250 ease-out cursor-pointer group relative">
       <div className="flex flex-col items-center gap-2 mt-1 justify-center relative m-2">
         <div className="h-28 w-28 relative rounded-full">
           <Image

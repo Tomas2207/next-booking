@@ -5,7 +5,7 @@ import VisibilitySensor from 'react-visibility-sensor';
 
 const Experience = () => {
   return (
-    <div className="flex lg:flex-row flex-col-reverse gap-8 items-center px-8 xl:px-32 2xl:px-60">
+    <div className="flex lg:flex-row flex-col-reverse gap-8 items-center px-2 sm:px-8 xl:px-32 2xl:px-60">
       <div className="h-[24rem] lg:h-[36rem] w-[20rem] sm:w-[24rem] lg:w-[62rem] relative rounded-md overflow-hidden">
         <video loop muted autoPlay className="h-full w-full object-cover">
           <source
