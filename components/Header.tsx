@@ -14,7 +14,7 @@ const Header = () => {
         <BookmarkIcon height={32} />
         Planner
       </h2>
-      <ul className="hidden text-white font-semibold sm:flex gap-8 mx-auto">
+      <ul className="hidden text-neutral-800 font-semibold sm:flex gap-8 mx-auto">
         <li className="group cursor-pointer flex flex-col">
           <a href="#about">About</a>
           <div className="nav-link" />

@@ -69,8 +69,7 @@ export default function Home() {
           <LargeCard
             img="https://res.cloudinary.com/dbejjbpof/video/upload/v1679377914/45326-travel_fdixxn.mp4"
             title="Find Your Next Trip"
-            description="Planner Recommendations"
-            buttonText="Get Inspired"
+            buttonText="Join Planner"
           />
         </div>
         <div id="reviews" />
