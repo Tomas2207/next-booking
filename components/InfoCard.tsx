@@ -1,11 +1,11 @@
-import Image from 'next/image';
-import { HeartIcon } from '@heroicons/react/24/outline';
-import { HeartIcon as HeartSolid, MapPinIcon } from '@heroicons/react/24/solid';
-import { StarIcon } from '@heroicons/react/24/solid';
-import { useEffect, useState } from 'react';
-import { useSession } from 'next-auth/react';
-import { AiOutlineLoading } from 'react-icons/ai';
-import { useRouter } from 'next/router';
+import Image from "next/image";
+import { HeartIcon } from "@heroicons/react/24/outline";
+import { HeartIcon as HeartSolid, MapPinIcon } from "@heroicons/react/24/solid";
+import { StarIcon } from "@heroicons/react/24/solid";
+import { useEffect, useState } from "react";
+import { useSession } from "next-auth/react";
+import { AiOutlineLoading } from "react-icons/ai";
+import { useRouter } from "next/router";
 
 type Props = {
   id: string;
@@ -37,12 +37,12 @@ const InfoCard = ({
   const router = useRouter();
 
   const handleHeart = async () => {
-    if (!session) router.replace('/api/auth/signin');
+    if (!session) router.replace("/api/auth/signin");
     else {
       setLoading(true);
 
       const response = await fetch(`/api/stays/add`, {
-        method: 'POST',
+        method: "POST",
         body: JSON.stringify({
           id,
           img,
@@ -52,11 +52,11 @@ const InfoCard = ({
           star,
           price,
           total,
-          list: 'My Stays',
+          list: "My Stays",
           user: session?.user?.email,
         }),
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
       });
 
@@ -70,7 +70,7 @@ const InfoCard = ({
   const deleteHeart = async () => {
     setLoading(true);
     const response = await fetch(`/api/stays/${id}`, {
-      method: 'DELETE',
+      method: "DELETE",
     }).then((res) => res.json());
     setLoading(false);
     setFillHeart(false);
@@ -78,9 +78,9 @@ const InfoCard = ({
   };
 
   const checkHeart = async () => {
-    const HeartArray = await fetch('/api/stays/get').then((res) => res.json());
+    const HeartArray = await fetch("/api/stays/get").then((res) => res.json());
 
-    HeartArray.stays.forEach((stay: any) => {
+    HeartArray.stays?.forEach((stay: any) => {
       if (stay.title === title) setFillHeart(true);
     });
     setLoading(false);

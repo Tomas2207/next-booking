@@ -1,16 +1,16 @@
-import Image from 'next/image';
+import Image from "next/image";
 import {
   MagnifyingGlassIcon,
   Bars3Icon,
   UserCircleIcon,
   UsersIcon,
   GlobeAltIcon,
-} from '@heroicons/react/24/solid';
-import { useState } from 'react';
-import 'react-date-range/dist/styles.css'; // main style file
-import 'react-date-range/dist/theme/default.css'; // theme css file
-import { DateRange, DateRangePicker } from 'react-date-range';
-import { useRouter } from 'next/router';
+} from "@heroicons/react/24/solid";
+import { useState } from "react";
+import "react-date-range/dist/styles.css"; // main style file
+import "react-date-range/dist/theme/default.css"; // theme css file
+import { DateRange, DateRangePicker } from "react-date-range";
+import { useRouter } from "next/router";
 
 type Range = {
   selection: {
@@ -32,10 +32,10 @@ const Searchbar = ({ placeholder }: Props) => {
 
   const search = () => {
     if (startDate.toISOString() === endDate.toISOString()) {
-      alert('checkin date cannot be the same as checkout date');
+      alert("checkin date cannot be the same as checkout date");
     } else {
       router.push({
-        pathname: '/search',
+        pathname: "/search",
         query: {
           location: searchInput,
           startDate: startDate.toISOString(),
@@ -45,13 +45,13 @@ const Searchbar = ({ placeholder }: Props) => {
       });
     }
 
-    setSearchInput('');
+    setSearchInput("");
   };
 
   const selectionRange = {
     startDate,
     endDate,
-    key: 'selection',
+    key: "selection",
   };
 
   const handleSelect = (ranges: any) => {
@@ -65,25 +65,25 @@ const Searchbar = ({ placeholder }: Props) => {
       <div className="flex items-center md:border-2 rounded-full py-2 md:shadow-sm">
         <input
           type="text"
-          placeholder={'Start your search'}
+          placeholder={"Start your search"}
           className="flex-grow pl-5 bg-transparent outline-none text-gray-600 placeholder-gray-400 sm:hidden"
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
         />
         <input
           type="text"
-          placeholder={placeholder || 'Start your search'}
+          placeholder={placeholder || "Start your search"}
           className="flex-grow pl-5 bg-transparent outline-none text-gray-600 placeholder-gray-400 hidden sm:inline-flex"
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
         />
       </div>
       {searchInput ? (
-        <div className="hidden md:flex flex-col col-span-3 mx-auto mt-3 z-[55] shadow-xl absolute">
+        <div className="hidden md:flex flex-col col-span-3 mx-auto mt-3 z-[99] shadow-xl absolute">
           <DateRangePicker
             ranges={[selectionRange]}
             minDate={new Date()}
-            rangeColors={['#96CBBC']}
+            rangeColors={["#96CBBC"]}
             onChange={handleSelect}
           />
           <div className="flex items-center border-b pb-4 bg-white shadow-xl px-4">
@@ -102,7 +102,7 @@ const Searchbar = ({ placeholder }: Props) => {
           <div className="flex bg-white py-2 shadow-xl">
             <button
               className="flex-grow text-gray-500"
-              onClick={() => setSearchInput('')}
+              onClick={() => setSearchInput("")}
             >
               Cancel
             </button>
@@ -117,11 +117,11 @@ const Searchbar = ({ placeholder }: Props) => {
       ) : null}
       {/* Date Range */}
       {searchInput ? (
-        <div className="flex md:hidden flex-col col-span-3 mx-auto mt-3 z-[55] shadow-xl absolute left-0">
+        <div className="flex md:hidden flex-col col-span-3 mx-auto mt-3 z-[99] shadow-xl absolute left-0">
           <DateRange
             ranges={[selectionRange]}
             minDate={new Date()}
-            rangeColors={['#96CBBC']}
+            rangeColors={["#96CBBC"]}
             onChange={handleSelect}
           />
           <div className="flex items-center border-b pb-4 bg-white shadow-xl px-4">
@@ -140,7 +140,7 @@ const Searchbar = ({ placeholder }: Props) => {
           <div className="flex bg-white py-2 shadow-xl">
             <button
               className="flex-grow text-gray-500"
-              onClick={() => setSearchInput('')}
+              onClick={() => setSearchInput("")}
             >
               Cancel
             </button>

@@ -1,17 +1,17 @@
-import Head from 'next/head';
-import Banner from '@/components/Banner';
-import SmallCard from '@/components/SmallCard';
-import LargeCard from '@/components/LargeCard';
-import Footer from '@/components/Footer';
-import Header from '@/components/Header';
-import Posts from '@/components/Posts';
-import { LightBulbIcon, MapIcon } from '@heroicons/react/24/solid';
-import Services from '@/components/Services';
-import Experience from '@/components/Experience';
-import Reviews from '@/components/Reviews';
-import smallCards from '@/lib/smallCards.json';
-import posts from '@/lib/posts.json';
-import reviews from '@/lib/reviews.json';
+import Head from "next/head";
+import Banner from "@/components/Banner";
+import SmallCard from "@/components/SmallCard";
+import LargeCard from "@/components/LargeCard";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import Posts from "@/components/Posts";
+import { LightBulbIcon, MapIcon } from "@heroicons/react/24/solid";
+import Services from "@/components/Services";
+import Experience from "@/components/Experience";
+import Reviews from "@/components/Reviews";
+import smallCards from "@/lib/smallCards.json";
+import posts from "@/lib/posts.json";
+import reviews from "@/lib/reviews.json";
 
 type Posts = {
   image: string;
@@ -37,7 +37,7 @@ export default function Home() {
       <Header />
       <Banner />
       <main className="w-full">
-        <section className="pt-4 px-2 sm:px-8 xl:px-32 2xl:px-60 mx-auto">
+        <section className="pt-4 px-2 sm:px-8 xl:px-32 2xl:px-60 mx-auto z-0">
           <h2 className="text-4xl font-semibold pb-1 text-neutral-800 flex items-center gap-2 flex-wrap">
             <MapIcon height={24} />
             <p className="text-[#96CBBC]">Popular</p>
